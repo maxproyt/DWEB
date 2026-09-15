@@ -1,0 +1,151 @@
+<!--
+Feito por Victor Motta
+Gerei uma pesquisa via IA pois não tinha feito a atividade 2 
+Utilizei os conceitos de HTML semântico como pediu, tentei separar as partes em seções. 
+Dentro das seções, utilizei artigos para detalhar exemplos e conceitos.
+Além disso, usei um aside para referências e um footer para informações de copyright, que no caso é meu nome. rs 
+Usei uma tabelinha para resumir as técnicas e boas práticas de design responsivo.
+Também utilizei elementos como pre e code para mostrar exemplos de código. (Esse aqui foi uma dica da IA, fez mais sentido pro código do que para o texto, mas achei interessante e decidi usar)
+O CSS está no arquivo separado, usei uma paleta de cores neutra que eu mesmo gerei. 
+IA me ajudou a formatar a estilização de containers e paragrafos.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Design Responsivo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Design Responsivo</h1>
+    <p>Conceitos, técnicas, frameworks e exemplos</p>
+  </header>
+
+  <div class="layout">
+  <main>
+    <section>
+      <h2>1. Introdução</h2>
+      <p>Design responsivo (Responsive Web Design — RWD) é uma abordagem de desenvolvimento web que faz páginas e componentes se adaptarem a diferentes tamanhos de tela, resoluções e condições de uso. Em vez de criar uma versão separada para cada dispositivo, o layout é construído para reorganizar conteúdo, dimensões e espaçamentos conforme o espaço disponível. O conceito foi popularizado por Ethan Marcotte e é hoje uma prática fundamental do desenvolvimento web moderno.</p>
+    </section>
+
+    <section>
+      <h2>2. Mobile first e viewport</h2>
+      <p>A estratégia mobile first começa pelo menor espaço disponível e adiciona melhorias para telas maiores. Isso favorece interfaces simples e evita depender de um modelo específico de celular. No HTML, a meta tag viewport orienta o navegador a usar a largura real do dispositivo.</p>
+      <article>
+        <h3>Exemplo de meta tag viewport</h3>
+        <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+      </article>
+    </section>
+
+    <section>
+      <h2>3. Layouts fluidos: Flexbox e CSS Grid</h2>
+      <p>Layouts fluidos usam unidades relativas e recursos modernos do CSS para que os elementos cresçam, encolham ou mudem de posição. Flexbox é especialmente útil para organizar elementos em uma dimensão, como menus e barras; CSS Grid é adequado para estruturas em linhas e colunas. Ambos reduzem a necessidade de criar regras para cada tamanho de tela.</p>
+    </section>
+
+    <section>
+      <h2>4. Media queries e breakpoints</h2>
+      <p>Media queries permitem aplicar estilos conforme características do ambiente, principalmente a largura do viewport. Os pontos em que o layout muda são chamados de breakpoints. Um bom projeto não deve escolher breakpoints apenas por modelos de aparelhos, mas quando o conteúdo realmente precisar de uma mudança de layout.</p>
+      <article>
+        <h3>Exemplo de media query</h3>
+        <pre><code>@media (min-width: 768px) {
+  .menu {
+    display: flex;
+  }
+}</code></pre>
+      </article>
+    </section>
+
+    <section>
+      <h2>5. Imagens, tipografia e unidades relativas</h2>
+      <p>Imagens devem evitar ultrapassar o espaço disponível, por exemplo com <code>max-width: 100%</code>. Para cenários mais avançados, o HTML oferece <code>&lt;picture&gt;</code> e <code>srcset</code>, permitindo escolher recursos adequados a diferentes tamanhos e resoluções. Unidades como <code>%</code>, <code>rem</code>, <code>em</code>, <code>vw</code> e <code>vh</code> também ajudam a produzir interfaces flexíveis.</p>
+    </section>
+
+    <section>
+      <h2>6. Técnicas e boas práticas</h2>
+      <article>
+        <h3>Resumo comparativo</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Técnica</th>
+                <th>Aplicação</th>
+                <th>Benefício</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mobile first</td>
+                <td>Começar pelo layout de telas pequenas.</td>
+                <td>Simplifica a interface e facilita a expansão.</td>
+              </tr>
+              <tr>
+                <td>Flexbox / Grid</td>
+                <td>Criar estruturas que se ajustam ao espaço.</td>
+                <td>Menos CSS específico por dispositivo.</td>
+              </tr>
+              <tr>
+                <td>Media queries</td>
+                <td>Alterar layout em determinados breakpoints.</td>
+                <td>Permite reorganizar conteúdo quando necessário.</td>
+              </tr>
+              <tr>
+                <td>Imagens responsivas</td>
+                <td><code>max-width</code>, <code>srcset</code> e <code>picture</code>.</td>
+                <td>Evita overflow e reduz recursos desnecessários.</td>
+              </tr>
+              <tr>
+                <td>Container queries</td>
+                <td>Adaptar componentes ao tamanho do próprio container.</td>
+                <td>Componentes mais reutilizáveis e independentes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>7. Frameworks e exemplos</h2>
+      <p><strong>Bootstrap</strong>: framework popular que oferece sistema de grid, componentes e breakpoints prontos. Na versão 5.3, seus breakpoints padrão incluem 576, 768, 992, 1200 e 1400px, além do nível extra pequeno.</p>
+      <article>
+        <h3>Exemplo com Bootstrap</h3>
+        <pre><code>&lt;div class="col-12 col-md-6"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+      </article>
+      <p><strong>Tailwind CSS</strong>: framework baseado em classes utilitárias e abordagem mobile first. Classes como <code>md:flex</code>, <code>lg:grid-cols-3</code> e <code>xl:text-lg</code> aplicam mudanças a partir de breakpoints. Também possui suporte a container queries.</p>
+      <article>
+        <h3>Exemplo prático: cartões de produto</h3>
+        <p>Uma página de produtos pode exibir um cartão por linha no celular, dois em tablets e três ou quatro em desktops. O conteúdo permanece o mesmo; Flexbox/Grid, breakpoints e imagens fluidas controlam sua apresentação.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>8. Conclusão</h2>
+      <p>O design responsivo não é apenas reduzir uma página para caber no celular: trata-se de projetar uma interface flexível, legível e utilizável em diferentes contextos. As principais ferramentas são layouts modernos como Flexbox e Grid, media queries, unidades relativas, imagens responsivas e, cada vez mais, container queries. Frameworks como Bootstrap e Tailwind CSS aceleram a implementação, mas os fundamentos de HTML e CSS continuam essenciais para produzir soluções acessíveis, performáticas e adequadas ao conteúdo.</p>
+    </section>
+  </main>
+
+  <aside>
+    <h2>Referências</h2>
+    <ul>
+      <li><a href="https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener">MDN — Design Responsivo</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Media_queries" target="_blank" rel="noopener">MDN — Media Queries</a></li>
+      <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Guides/Responsive_images" target="_blank" rel="noopener">MDN — Imagens responsivas</a></li>
+      <li><a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/" target="_blank" rel="noopener">Bootstrap 5.3 — Breakpoints</a></li>
+      <li><a href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noopener">Tailwind CSS — Responsive Design</a></li>
+    </ul>
+  </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Victor Motta.</p>
+  </footer>
+
+</body>
+</html>
