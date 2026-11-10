@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa de opinião - Filme</title>
+</head>
+<body>
+
+    <h2>Pesquisa de opinião - Filme</h2>
+
+    <form id="formPesquisa">
+
+        <label>Quantidade de respondentes:</label>
+        <input type="number" id="qtd" min="1" required>
+
+        <button type="button" onclick="gerarCampos()">
+            Gerar pesquisa
+        </button>
+
+        <div id="camposRespondentes"></div>
+
+        <br>
+
+        <button type="button" onclick="operarNumeros()">
+            Calcular
+        </button>
+
+    </form>
+
+    <h3 id="resultadoNumeros"></h3>
+
+    <script src="media.js"></script>
+
+</body>
+</html>
