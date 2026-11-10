@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pacientes cadastrados | Equipe AP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body id="container-box">
+    <aside id="navegador">
+      <nav id="menu" aria-label="Menu principal">
+        <a class="nav_button" href="../dashboard/">
+          <img class="img_btm" src="../assets/dash.svg" alt="" />
+          Dashboard
+        </a>
+        <a class="nav_button ativo" href="../pacientes/" aria-current="page">
+          <img class="img_btm" src="../assets/pacientes.svg" alt="" />
+          Pacientes
+        </a>
+        <a class="nav_button" href="../solicitacoes/">
+          <img class="img_btm" src="../assets/tabela.svg" alt="" />
+          Solicitações
+        </a>
+      </nav>
+    </aside>
+
+    <header id="header">
+      <h1>Pacientes cadastrados</h1>
+      <a
+        id="btn_voltar"
+        href="../solicitacoes/"
+        aria-label="Voltar para Solicitações"
+        >&lsaquo;</a
+      >
+    </header>
+
+    <main id="main">
+      <div id="acoes">
+        <button type="button" id="btn_cadastrar">Cadastrar +</button>
+      </div>
+
+      <ul id="lista_pacientes" aria-live="polite"></ul>
+
+      <div id="estado_vazio">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="22" r="10" />
+          <path d="M12 54c0-11 9-18 20-18s20 7 20 18" />
+        </svg>
+        <p class="vazio_titulo">Nenhum paciente cadastrado</p>
+        <p class="vazio_texto">Cadastre um paciente para começar.</p>
+      </div>
+
+      <button type="button" id="btn_carregar" class="link" hidden>
+        Carregar mais pacientes
+      </button>
+    </main>
+
+    <dialog id="modal_cadastro" aria-labelledby="titulo_cadastro">
+      <form id="form_cadastro" novalidate>
+        <div class="modal_topo">
+          <h2 id="titulo_cadastro">Cadastrar paciente</h2>
+          <button type="button" id="btn_fechar" aria-label="Fechar janela">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal_corpo">
+          <fieldset>
+            <legend>Dados pessoais</legend>
+            <div class="campos">
+              <div class="campo campo_full">
+                <label for="f_nome">Nome completo *</label>
+                <input
+                  id="f_nome"
+                  name="nome"
+                  type="text"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+
+              <div class="campo">
+                <label for="f_cpf">CPF</label>
+                <input
+                  id="f_cpf"
+                  name="cpf"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="000.000.000-00"
+                  maxlength="14"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="campo">
+                <label for="f_rg">RG</label>
+                <input
+                  id="f_rg"
+                  name="rg"
+                  type="text"
+                  maxlength="14"
+                  autocomplete="off"
+                />
+              </div>
+
+              <p class="dica campo_full">Informe ao menos o CPF ou o RG.</p>
+
+              <div class="campo">
+                <label for="f_nascimento">Data de nascimento</label>
+                <input id="f_nascimento" name="nascimento" type="date" />
+              </div>
+
+              <div class="campo">
+                <label for="f_telefone">Telefone *</label>
+                <input
+                  id="f_telefone"
+                  name="telefone"
+                  type="tel"
+                  inputmode="numeric"
+                  placeholder="(00) 00000-0000"
+                  maxlength="15"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+
+              <div class="campo campo_full">
+                <label for="f_email">E-mail</label>
+                <input
+                  id="f_email"
+                  name="email"
+                  type="email"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Endereço</legend>
+            <div class="campos">
+              <div class="campo">
+                <label for="f_cep">CEP</label>
+                <input
+                  id="f_cep"
+                  name="cep"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="00000-000"
+                  maxlength="9"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="campo">
+                <label for="f_numero">Número</label>
+                <input
+                  id="f_numero"
+                  name="numero"
+                  type="text"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="campo campo_full">
+                <label for="f_rua">Rua</label>
+                <input id="f_rua" name="rua" type="text" autocomplete="off" />
+              </div>
+
+              <div class="campo">
+                <label for="f_complemento">Complemento</label>
+                <input
+                  id="f_complemento"
+                  name="complemento"
+                  type="text"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="campo">
+                <label for="f_bairro">Bairro</label>
+                <input
+                  id="f_bairro"
+                  name="bairro"
+                  type="text"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="campo">
+                <label for="f_cidade">Cidade</label>
+                <input
+                  id="f_cidade"
+                  name="cidade"
+                  type="text"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="campo">
+                <label for="f_uf">Estado (UF)</label>
+                <input
+                  id="f_uf"
+                  name="uf"
+                  type="text"
+                  maxlength="2"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <p id="erro_cadastro" role="alert" hidden></p>
+        </div>
+
+        <div class="modal_rodape">
+          <button type="button" class="btn_secundario" id="btn_cancelar">
+            Cancelar
+          </button>
+          <button type="submit" class="btn_primario" id="btn_salvar">
+            Salvar paciente
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

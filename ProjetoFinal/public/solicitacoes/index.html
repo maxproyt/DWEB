@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitações | Equipe AP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="container-box">
+    <aside id="navegador">
+      <nav id="menu" aria-label="Menu principal">
+        <a class="nav_button" href="../dashboard/"
+          ><img class="img_btm" src="../assets/dash.svg" alt="" />Dashboard</a
+        >
+        <a class="nav_button" href="../pacientes/"
+          ><img
+            class="img_btm"
+            src="../assets/pacientes.svg"
+            alt=""
+          />Pacientes</a
+        >
+        <a class="nav_button ativo" href="../solicitacoes/" aria-current="page"
+          ><img
+            class="img_btm"
+            src="../assets/tabela.svg"
+            alt=""
+          />Solicitações</a
+        >
+      </nav>
+    </aside>
+    <header id="header">
+      <div>
+        <p class="eyebrow">Equipe AP</p>
+        <h1>Solicitações</h1>
+      </div>
+      <div id="dados_perfil">
+        <button class="icone_circular" type="button" aria-label="Notificações">
+          <img src="../assets/notificacoes.svg" alt="" /></button
+        ><span>Olá, Álvaro!</span>
+        <div class="avatar" aria-hidden="true">A</div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="barra_acoes">
+        <label class="busca" for="search"
+          ><img src="../assets/lupa.svg" alt="" /><input
+            id="search"
+            type="search"
+            placeholder="Buscar por chamado ou paciente..." /></label
+        ><button id="btn_nova" type="button">Nova solicitação +</button>
+      </section>
+      <p id="mensagem" role="status" hidden></p>
+      <section id="kanban" aria-label="Quadro de solicitações">
+        <div class="coluna" data-status="analise">
+          <h2>Análise <span class="contador">0</span></h2>
+          <div class="cartoes"></div>
+        </div>
+        <div class="coluna" data-status="acompanhamento">
+          <h2>Acompanhamento <span class="contador">0</span></h2>
+          <div class="cartoes"></div>
+        </div>
+        <div class="coluna" data-status="finalizado">
+          <h2>Finalizado <span class="contador">0</span></h2>
+          <div class="cartoes"></div>
+        </div>
+      </section>
+    </main>
+    <dialog id="modal_solicitacao">
+      <form id="form_solicitacao">
+        <div class="modal_topo">
+          <h2>Nova solicitação</h2>
+          <button id="btn_fechar" type="button" aria-label="Fechar">
+            &times;
+          </button>
+        </div>
+        <div class="modal_corpo">
+          <label
+            >Paciente<select
+              id="f_paciente"
+              name="paciente_id"
+              required
+            ></select></label
+          ><label>Título<input name="titulo" required maxlength="100" /></label
+          ><label
+            >Prioridade<select name="prioridade">
+              <option value="normal">Normal</option>
+              <option value="urgente">Urgente</option>
+            </select></label
+          ><label
+            >Descrição<textarea name="descricao" rows="3"></textarea>
+          </label>
+        </div>
+        <div class="modal_rodape">
+          <button class="btn_secundario" id="btn_cancelar" type="button">
+            Cancelar</button
+          ><button class="btn_primario" type="submit">
+            Salvar solicitação
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>

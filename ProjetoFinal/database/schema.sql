@@ -1,0 +1,3 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS pacientes (id INTEGER PRIMARY KEY AUTOINCREMENT,nome TEXT NOT NULL,cpf TEXT UNIQUE,rg TEXT UNIQUE,nascimento TEXT,telefone TEXT NOT NULL,email TEXT,cep TEXT,numero TEXT,rua TEXT,complemento TEXT,bairro TEXT,cidade TEXT,uf TEXT,criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS solicitacoes (id INTEGER PRIMARY KEY AUTOINCREMENT,paciente_id INTEGER NOT NULL,titulo TEXT NOT NULL,descricao TEXT,prioridade TEXT NOT NULL DEFAULT 'normal' CHECK(prioridade IN ('normal','urgente')),status TEXT NOT NULL DEFAULT 'analise' CHECK(status IN ('analise','acompanhamento','finalizado')),criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,FOREIGN KEY(paciente_id) REFERENCES pacientes(id));

@@ -1,0 +1,66 @@
+@import url("../solicitacoes/style.css");
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 18px;
+}
+
+.indicador {
+  padding: 24px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  border-left: 4px solid var(--verde);
+}
+
+.indicador span {
+  display: block;
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.indicador strong {
+  font-size: 2rem;
+}
+
+.atalhos {
+  margin-top: 32px;
+}
+
+.atalhos h2 {
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+}
+
+.atalhos div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.atalhos a {
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: var(--verde);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#erro {
+  margin-top: 24px;
+  color: #a12b2b;
+}
+
+@media (max-width: 900px) {
+  .resumo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+}

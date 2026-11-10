@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Equipe AP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="container-box">
+    <aside id="navegador">
+      <nav id="menu" aria-label="Menu principal">
+        <a class="nav_button ativo" href="../dashboard/" aria-current="page"
+          ><img class="img_btm" src="../assets/dash.svg" alt="" />Dashboard</a
+        >
+        <a class="nav_button" href="../pacientes/"
+          ><img
+            class="img_btm"
+            src="../assets/pacientes.svg"
+            alt=""
+          />Pacientes</a
+        >
+        <a class="nav_button" href="../solicitacoes/"
+          ><img
+            class="img_btm"
+            src="../assets/tabela.svg"
+            alt=""
+          />Solicitações</a
+        >
+      </nav>
+    </aside>
+    <header id="header">
+      <div>
+        <p class="eyebrow">Equipe AP</p>
+        <h1>Dashboard</h1>
+      </div>
+      <div id="dados_perfil">
+        <span>Olá, Álvaro!</span>
+        <div class="avatar" aria-hidden="true">A</div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="resumo" aria-label="Resumo do sistema">
+        <article class="indicador">
+          <span>Pacientes</span><strong id="total_pacientes">—</strong>
+        </article>
+        <article class="indicador">
+          <span>Em análise</span><strong id="total_analise">—</strong>
+        </article>
+        <article class="indicador">
+          <span>Em acompanhamento</span
+          ><strong id="total_acompanhamento">—</strong>
+        </article>
+        <article class="indicador">
+          <span>Finalizadas</span><strong id="total_finalizado">—</strong>
+        </article>
+      </section>
+      <section class="atalhos">
+        <h2>Acesso rápido</h2>
+        <div>
+          <a href="../pacientes/">Gerenciar pacientes</a
+          ><a href="../solicitacoes/">Acompanhar solicitações</a>
+        </div>
+      </section>
+      <p id="erro" role="alert" hidden>
+        Não foi possível carregar os dados. Verifique se o servidor está ativo.
+      </p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
